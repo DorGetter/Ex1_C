@@ -14,8 +14,6 @@
     printf("Welcome to the Bank");
     // will hold the input as a string;
     char choice[100];
-	//char a [100];
-	//char valid_i [100];>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 	
     
     while(exitFlag){
@@ -37,13 +35,11 @@
     scanf("%s",choice);
 	if(strlen(choice) != 1)
 	{
-		printf("the string %s",choice);//////////////////////////////////////////////////////////////////////
 		choice[0] = '\0';
 		Valid_choice='U';
 	}			
 	else
 	{
-		printf("valide_Choise: %s", choice);///////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 		Valid_choice=choice[0];
 	}
 	
@@ -64,23 +60,6 @@
              //open the account;
             double ammount=0; 
             printf("\nIn Order to create youre new account\nPlease commit a initial diposet: \n");
-			
-			
-			
-          /*   scanf("%s",a);
-			printf("The number string: %s",a);
-			
-			if(IsValidDouble(a))
-			{
-				printf("yes its 0==true");
-				break;
-			}
-			else
-			{
-				printf("0 means false");
-				break;
-			}   */
-			
 			
 			scanf("%lf",&ammount);
 			

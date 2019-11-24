@@ -7,52 +7,6 @@
 //Point into the next available account free;           
            static int BankNextAvailableSpot=0;
     
-
-/*
-*Validation function to check if given string is a double;
-*/
-	int IsValidDouble(char str [256])
-	{
-		int RunIndex=0;
-		int MinusCount=0;
-		int PlusCount=0;
-		int dotCount=0;
-		
-		if(str[0]=='\0')
-		{
-			return 1;
-		} 
-		
-		while(str[RunIndex] != '\0')
-		{
-				char c = str[RunIndex];
-				switch(c)
-				{
-					case '.':
-						if(++dotCount>1)
-							return 1;
-						break;
-						
-					case '+':
-						if(++PlusCount>1)
-							return 1;
-						break;
-						
-					case '-':
-						if(++MinusCount > 1)
-							return 1; 
-						break;
-					default:
-						if (!(c >= '0' && c <= '9'))
-						{
-							return 1;
-						}
-							break;
-				}
-		}
-		return 0;
-					
-	}
 	
 /*
  * function provides 0- if there is available accounts;
@@ -99,13 +53,15 @@
                 int newAcountNumber = BankNextAvailableSpot+901;
                     
                 //making the transaction;
-                    
+                double transaction = (int) ammount*100;
+				ammount = (transaction/100);
                 BankAccounts[0][BankNextAvailableSpot]=(BankAccounts[0][BankNextAvailableSpot]+ammount); 
                 
                 //updating the account status;
                 BankAccounts[1][BankNextAvailableSpot]=1;
                 
-                
+                double temp= (int)(ammount*100);
+				ammount = (double) temp/100;
                 printf("Bank Account Successfully Opened\n\tAccount Status:\nAccount Number: %d\nAccount Balance: %.2fl" , newAcountNumber,ammount);
                 
                 //promote the BankNextAvailableSpot;    
@@ -186,6 +142,9 @@
 				return ;
 				}
                 
+				double temp= (int)(diposet*100);
+				diposet = (double) temp/100;
+				
                 //commit the diposet;
                 BankAccounts[0][numberOfaccount-901]=BankAccounts[0][numberOfaccount-901]+diposet;
                 
@@ -239,6 +198,9 @@
                 
                 //Valid money withdrawal; 
                 //commit withdraw;
+				double temp= (int)(afterWithdraw*100);
+				afterWithdraw = (double) temp/100;
+				
                 BankAccounts[0][(numberOfaccount-901)]=afterWithdraw;
                 
                 double balance2;
@@ -278,7 +240,7 @@
                 //check if the account active;
                 if (BankAccounts [1][numberOfaccount-901]==0)
                 {
-                    printf("This account allready is closed!");
+                    printf("This account allready closed!");
                     return ;
                 }  
                 
@@ -308,8 +270,13 @@
                  {
                     if(BankAccounts[1][i]==1)
                     {
-                        BankAccounts[0][i]=BankAccounts[0][i]+((ratePre/100.0)*BankAccounts[0][i]);
-                    }	
+						double current=BankAccounts[0][i]*((ratePre+100.0)/100);
+						double temp= (int) current*100;
+						current = (double) temp/100;
+						
+                        BankAccounts[0][i]=current;
+                
+					}	
                  }
 				 PrintStatus();
                  return ;
