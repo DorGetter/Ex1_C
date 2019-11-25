@@ -245,7 +245,7 @@
                 }  
                 
                 //if its active account close it;
-                BankAccounts [1][numberOfaccount-901]=1;
+                BankAccounts [1][numberOfaccount-901]=0;
                 
                 printf("\naccount is closed\n");
                 return ;

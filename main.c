@@ -65,7 +65,7 @@
 			
 			printf("%f", ammount);
             OpenBankAcount(ammount); 
-         
+			clear_buffer(); 
             break;
         
         //Check Account Balance
@@ -74,7 +74,8 @@
             printf("\nPlease enter youre Bank account number\n");
             scanf("%d",&numberOfAccount1);
             BalanceCheck(numberOfAccount1); 
-            break;
+            clear_buffer(); 
+			break;
         
         //Diposet    
         case 'D': ;
@@ -88,7 +89,8 @@
             scanf("%lf",&diposet);
 
             Diposet(numberOfAccount2,diposet);
-            break;    
+            clear_buffer(); 
+			break;    
             
         //Withdraw    
         case 'W': ;
@@ -102,7 +104,8 @@
 			scanf("%lf",&withDraw);
 			
             Withdraw(numberOfAccount3,withDraw);
-            break;    
+            clear_buffer(); 
+			break;    
        
         //close account  
         case 'C': ;
@@ -110,7 +113,8 @@
             printf("\nPlease enter youre Bank account number\n");
             scanf("%d",&numberOfAccount4);
             Close(numberOfAccount4);
-            break;    
+           clear_buffer(); 
+		   break;    
          
         //add interest_rate    
         case 'I': ;   
@@ -118,6 +122,7 @@
             printf("\nEnter the new interest rate\n");
             scanf("%lf",&Newrate);
             AddRate(Newrate);
+			clear_buffer(); 
             break; 
             
         //Show all acount status       
@@ -129,12 +134,12 @@
         case 'E': 
             exitFlag=0;
 			Exit();
+			 
             break; 
                 
         default:
 				printf("\nUnvalid input- please make sure the following:\n1. Capital letter;\n2. inpt contain only the letter of the wish  operation.\n");
-				
-            break;
+			break;
         
     }   
         
